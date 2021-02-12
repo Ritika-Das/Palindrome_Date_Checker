@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2 align="center">Palindrome - Or Not?</h2>
+<h4>Today's date in dd/mm/yyyy format : </h4>
+
+<script>
+var currentDate = new Date();
+var dd = String(currentDate.getDate()).padStart(2, '0');
+var mm = String(currentDate.getMonth() + 1).padStart(2, '0');
+var yyyy = currentDate.getFullYear();
+
+var rawDate = dd + mm + yyyy; // for calculations
+currentDate = dd + '/' + mm + '/' + yyyy; // for displaying in format
+document.write(currentDate + ' ');
+
+var reversedDate=0, rem;
+var temp = rawDate; // saves the Date for later comparison
+for(;rawDate>0;)
+{
+	rem = rawDate % 10;
+    rawDate = parseInt(rawDate / 10); // converts String to integer
+    reversedDate = (reversedDate * 10) + rem;
+}
+
+if(temp == reversedDate)
+	document.write("(Hurray! Today's date is a palindrome.)");
+else
+	document.write("(Not today. Mind checking back on other days?)");
+</script>
+
+</body>
+</html>
